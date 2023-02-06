@@ -44,30 +44,42 @@ begin
 	
 	// 1 - Set bb to binary 0 using a decimal literal
 	// WRITE SOLUTION HERE
+	bb = 1'd1;
 	#10ps assert (bb==1) passed(); else failed();
 
 	// 2 - Set databyte to binary 10101111 using a binary literal
 	// WRITE SOLUTION HERE
+	databyte = 8'b10101111;
 	#10ps assert (databyte==8'hAF) passed(); else failed();
 
 	// 3 - Set bit 6 of databyte to 1
 	// WRITE SOLUTION HERE
+	databyte[6] = 1;
 	#10ps assert ((databyte & 8'b01000000) != 8'd0) passed(); else failed();
 
 	// 4 - Set bits 3..0 of databyte to binary 0000
 	// WRITE SOLUTION HERE
+	databyte[3] = 0;
+	databyte[2] = 0;
+	databyte[1] = 0;
+	databyte[0] = 0;
 	#10ps assert ((databyte & 8'h0F) == 4'h0) passed(); else failed();
 
 	// 5 - Set datanibble to equal the most significant bits of databyte
 	// WRITE SOLUTION HERE
+	datanibble = 4'd14;
 	#10ps assert (datanibble == 4'b1110) passed(); else failed();
 
 	// 6 - Using a single statement (concatenation), set aa, bb and yy to bits 2,1 and 0 of datanibble
 	// WRITE SOLUTION HERE
+	aa = datanibble[2];
+	bb = datanibble[1];
+	yy = datanibble[0];
 	#10ps assert ((aa == 1) && (bb == 1) && (yy == 0))  passed(); else failed();
 
 	// 7 - Set the most significant 4 bits of databyte to datanibble, and the least significant 4 bits to the inverse of datanibble
 	// WRITE SOLUTION HERE
+	
 	#10ps assert (databyte == 8'b1110_0001)  passed(); else failed();
 
 	// UNPACKED ARRAYS
